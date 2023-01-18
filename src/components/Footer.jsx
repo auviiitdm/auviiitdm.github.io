@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <React.Fragment>
+    <>
       <div className="footer">
         <p className="p-3">
           Made with love {"        "}
@@ -16,7 +16,7 @@ const Footer = () => {
           </a>
         </p>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

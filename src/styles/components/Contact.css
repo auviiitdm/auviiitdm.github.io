@@ -1,0 +1,13 @@
+/* only for map image */
+
+#contact img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+@media (min-width: 717px) {
+    #contact img {
+        height: 15rem;
+    }
+}

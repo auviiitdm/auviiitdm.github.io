@@ -1,9 +1,29 @@
 import React from "react";
-import Thilak from "../../assets/auv_photos_team/sopho_ele/Thilak/ThilakDP.jpg";
+import ProfileModal from "./ProfileModal";
 
-const Electronicmodal = () => {
+// images
+
+import Nithin from "../../assets/auv_photos_team/2022/ec/Nithin.jpg";
+import Mrudula from "../../assets/auv_photos_team/2022/ec/Mrudula.jpg";
+import Rahul from "../../assets/auv_photos_team/2022/ec/ec21b1057.jpg";
+
+const Electronicsmodal = () => {
+  const teamMembers = [
+    {
+      name: "Nithin",
+      imageSource: Nithin,
+    },
+    {
+      name: "Mrudula",
+      imageSource: Mrudula,
+    },
+    {
+      name: "KS Rahul",
+      imageSource: Rahul,
+    },
+  ];
   return (
-    <React.Fragment>
+    <>
       <div className="modal fade" id="electronics">
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
@@ -15,16 +35,16 @@ const Electronicmodal = () => {
             </div>
             <div className="modal-body">
               <div className="img-flex">
-                <div className="profile-modal">
-                  <img src={Thilak} alt="Thilak" className="profile" />
-                  <a
-                    href="https://www.instagram.com/thilak_karanam/"
-                    target="blank"
-                  >
-                    <i className="fa">&#xf0e1;</i>
-                  </a>
-                  <p>Thilak</p>
-                </div>
+                {teamMembers.map((member) => {
+                  return (
+                    <ProfileModal
+                      key={member.name}
+                      name={member.name}
+                      imageSource={member.imageSource}
+                      linkedInLink={member.linkedInLink}
+                    />
+                  );
+                })}
               </div>
             </div>
             <div className="modal-footer">
@@ -39,8 +59,8 @@ const Electronicmodal = () => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
-export default Electronicmodal;
+export default Electronicsmodal;

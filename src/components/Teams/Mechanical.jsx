@@ -1,12 +1,35 @@
-import React from "react";
-import Advaith from "../../assets/auv_photos_team/sopho_mech/Advaith Kandiraju/0.jpeg";
-import Ruthwik from "../../assets/auv_photos_team/sopho_mech/Ruthwik Dasyam/Image.jpg";
-import Saksham from "../../assets/auv_photos_team/sopho_mech/Saksham Mishra/0 (1).jpeg";
-import Sukesh from "../../assets/auv_photos_team/sopho_mech/Sukesh/sukesh.jpeg";
+import ProfileModal from "./ProfileModal";
+import Srikrishnan from "../../assets/auv_photos_team/2022/me/Srikrishnan.jpg";
+import Raghav from "../../assets/auv_photos_team/2022/me/Raghav.jpg";
+import Vishal from "../../assets/auv_photos_team/2022/me/Vishal.jpg";
+import Vijay from "../../assets/auv_photos_team/2022/me/Vijay.jpg";
+import Vaishnavi from "../../assets/auv_photos_team/2022/me/Vaishnavi.jpg";
 
-const Mechanicalmodel = () => {
+const Mechanicalmodal = () => {
+  const teamMembers = [
+    {
+      name: "Srikrishnan",
+      imageSource: Srikrishnan,
+    },
+    {
+      name: "Raghav",
+      imageSource: Raghav,
+    },
+    {
+      name: "Vishal",
+      imageSource: Vishal,
+    },
+    {
+      name: "Vaishnavi",
+      imageSource: Vaishnavi,
+    },
+    {
+      name: "Vijay Krishna RV",
+      imageSource: Vijay,
+    },
+  ];
   return (
-    <React.Fragment>
+    <>
       <div className="modal fade" id="mechanical">
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
@@ -18,46 +41,16 @@ const Mechanicalmodel = () => {
             </div>
             <div className="modal-body">
               <div className="img-flex">
-                <div className="profile-modal">
-                  <img src={Advaith} alt="advaith" className="profile" />
-                  <a
-                    href="https://www.linkedin.com/in/advaith-kandiraju-14320517a/"
-                    target="blank"
-                  >
-                    <i className="fa">&#xf0e1;</i>
-                  </a>
-                  <p>Advaith Kandiraju</p>
-                </div>
-                <div className="profile-modal">
-                  <img src={Ruthwik} alt="ruthwik" className="profile" />
-                  <a
-                    href="https://www.linkedin.com/in/ruthwikdasyam/"
-                    target="blank"
-                  >
-                    <i className="fa">&#xf0e1;</i>
-                  </a>
-                  <p>Ruthwik Dasyam</p>
-                </div>
-                <div className="profile-modal">
-                  <img src={Saksham} alt="saksham" className="profile" />
-                  <a
-                    href="https://www.linkedin.com/in/saksham-mishra-a00153177/"
-                    target="blank"
-                  >
-                    <i className="fa">&#xf0e1;</i>
-                  </a>
-                  <p>Saksham Mishra</p>
-                </div>
-                <div className="profile-modal">
-                  <img src={Sukesh} alt="saksham" className="profile" />
-                  <a
-                    href="https://www.linkedin.com/in/sukesh-j-r-8809b4191/"
-                    target="blank"
-                  >
-                    <i className="fa">&#xf0e1;</i>
-                  </a>
-                  <p>Sukesh</p>
-                </div>
+                {teamMembers.map((member) => {
+                  return (
+                    <ProfileModal
+                      key={member.name}
+                      name={member.name}
+                      imageSource={member.imageSource}
+                      linkedInLink={member.linkedInLink}
+                    />
+                  );
+                })}
               </div>
             </div>
             <div className="modal-footer">
@@ -72,8 +65,8 @@ const Mechanicalmodel = () => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
-export default Mechanicalmodel;
+export default Mechanicalmodal;

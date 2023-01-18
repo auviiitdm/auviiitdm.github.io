@@ -7,7 +7,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 const Sponsors = () => {
   return (
-    <React.Fragment>
+    <>
       <div className="sponsors" id="sponsors">
         <ScrollAnimation animateIn="fadeIn">
           <div className="container">
@@ -60,7 +60,7 @@ const Sponsors = () => {
           </div>
         </ScrollAnimation>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

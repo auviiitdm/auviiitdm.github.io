@@ -1,8 +1,9 @@
 import React from "react";
+import "../styles/components/LandingPage.css";
 
 const LandingPage = () => {
   return (
-    <React.Fragment>
+    <>
       <div className="landingpage" id="home">
         <div className="overlay">
           <h2>Team AUV</h2>
@@ -13,7 +14,7 @@ const LandingPage = () => {
           </a>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

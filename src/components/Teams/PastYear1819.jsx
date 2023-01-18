@@ -1,5 +1,3 @@
-import React from "react";
-
 import Daware from "../../assets/auv_photos_team/2019-2020/daware.jpg";
 import Chit from "../../assets/auv_photos_team/2019-2020/chit.jpg";
 import Govind from "../../assets/auv_photos_team/2019-2020/govind.png";
@@ -11,7 +9,7 @@ import Vishva from "../../assets/auv_photos_team/2019-2020/vishva.jpg";
 
 const PastYear1920modal = () => {
   return (
-    <React.Fragment>
+    <>
       <div className="modal fade" id="past1819team">
         <div className="modal-dialog pastteam modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
@@ -126,7 +124,7 @@ const PastYear1920modal = () => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

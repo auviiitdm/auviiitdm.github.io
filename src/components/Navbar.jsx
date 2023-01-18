@@ -1,6 +1,8 @@
 import React from "react";
 import Logo from "../assets/new_logo.png";
 
+import "../styles/components/Navbar.css";
+
 const Navbar = () => {
   return (
     <nav
@@ -42,7 +44,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <a href="#post" className="nav-link">
-              Post
+              Posts
             </a>
           </li>
           <li className="nav-item">
