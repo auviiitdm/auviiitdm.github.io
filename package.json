@@ -48,5 +48,6 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^1.1.1",
     "gh-pages": "^3.2.3"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }
