@@ -121,11 +121,11 @@ const Contacts = () => {
                     {"      "}
                     <br />
                     <span>
-                      <b>Muthu Shravan:</b> 7092547036
+                      <b>Ezhil:</b> +91 63819 66163
                     </span>
                     <br />
                     <span>
-                      <b>Venkata Madhav:</b> 9966541718
+                      <b>Mukilan:</b> +91 94448 86709
                     </span>
                     <br />
                   </p>
