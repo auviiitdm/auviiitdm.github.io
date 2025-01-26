@@ -17,7 +17,7 @@ const About = () => {
             <div className="col-sm-8">
               <h6 className="sub-heading">Who we are?</h6>
               <p>
-                We are a team of 9 interdisciplinary undergraduate engineers
+                We are a team of 26 interdisciplinary undergraduate engineers
                 working to build an autonomous water vehicle for various
                 underwater robotics competetions. The team works in robotic
                 domains of mechanical, electronics and software. We want to bind
