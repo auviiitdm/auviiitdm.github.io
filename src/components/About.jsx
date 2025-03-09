@@ -1,69 +1,97 @@
-import React from "react";
-import Faces from "../assets/icons/face.svg";
-import Github from "../assets/icons/github.svg";
-import Medal from "../assets/icons/medal.svg";
-import Trophy from "../assets/icons/trophy.svg";
-import ScrollAnimation from "react-animate-on-scroll";
-import Documentation from "../assets/AUV_v1.0_report.pdf";
+import { useEffect, useRef } from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
+import '../styles/components/about.css';
 
+// Import icons as React components for better performance
 const About = () => {
+  const statsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-stats');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const stats = [
+    { number: '3', label: 'Vehicles Built', icon: '🚀' },
+    { number: '30+', label: 'Team Members', icon: '👥' },
+    { number: '9000+', label: 'Lines of Code', icon: '💻' },
+    { number: 'Top 20', label: 'SAUVC Ranking', icon: '🏆' },
+  ];
+
   return (
-    <div className="about mt-5" id="about">
-      <ScrollAnimation animateIn="fadeInDown">
-        <div className="container">
-          <h2 className="title">About Us</h2>
-          <hr></hr>
-          <div className="row">
-            <div className="col-sm-8">
-              <h6 className="sub-heading">Who we are?</h6>
-              <p>
-                We are a team of 26 interdisciplinary undergraduate engineers
-                working to build an autonomous water vehicle for various
-                underwater robotics competetions. The team works in robotic
-                domains of mechanical, electronics and software. We want to bind
-                together our thereotical knowledge and put it into an under
-                water vehicle that can go and explore the vast seas.
-              </p>
-              <div style={{ display: "flex", justifyContent: "left" }}>
-                <a href={Documentation} target="blank" className="mr-2">
-                  <u style={{ color: "#0dc1f7" }}>Documentation</u>
-                </a>
-                <a
-                  href="https://www.ketto.org/fundraiser/fund-the-auv-society-for-team-orca"
-                  target="blank"
-                >
-                  <u style={{ color: "#0dc1f7" }}>Sponsor Us</u>
-                </a>
-              </div>
+    <section className="about-section" id="about">
+      <div className="about-container">
+        <ScrollAnimation animateIn="fadeIn" duration={1}>
+          <h2 className="section-title">About Us</h2>
+          <div className="about-grid">
+            <div className="about-content">
+              <ScrollAnimation animateIn="fadeInUp" delay={200}>
+                <h3 className="content-title">Who we are?</h3>
+                <p className="content-text">
+                  We are a team of interdisciplinary undergraduate engineers passionate about underwater robotics. 
+                  Our mission is to push the boundaries of autonomous underwater vehicles through innovation and teamwork.
+                </p>
+                <p className="content-text">
+                  Working across mechanical, electronics, and software domains, we transform theoretical knowledge 
+                  into cutting-edge underwater vehicles capable of exploring the vast depths of our oceans.
+                </p>
+                <div className="cta-group">
+                  <a href="https://www.ketto.org/fundraiser/fund-the-auv-society-for-team-orca" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     className="cta-link primary">
+                    Sponsor Us
+                  </a>
+                </div>
+              </ScrollAnimation>
             </div>
-            <div className="col-sm-4 text-center">
-              <iframe
-                title="video"
-                src="https://www.youtube.com/embed/NsHS6F2bjII?playlist=NsHS6F2bjII&loop=1"
-              ></iframe>
-            </div>
-          </div>
-          <div className="card-deck mt-5 pb-3 text-center">
-            <div className="card">
-              <img className="icon" src={Trophy} alt="" />
-              <p>3 Vehicles</p>
-            </div>
-            <div className="card">
-              <img className="icon" src={Faces} alt="" />
-              <p>30 Happy Members</p>
-            </div>
-            <div className="card">
-              <img className="icon" src={Github} alt="" />
-              <p>9000+ lines of code</p>
-            </div>
-            <div className="card">
-              <img className="icon" src={Medal} alt="" />
-              <p>17th place in SAUVC</p>
+            
+            <div className="about-media">
+              <ScrollAnimation animateIn="fadeInUp" delay={400}>
+                <div className="video-wrapper">
+                  <iframe
+                    title="AUV Team Video"
+                    src="https://www.youtube.com/embed/NsHS6F2bjII?playlist=NsHS6F2bjII&loop=1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </ScrollAnimation>
             </div>
           </div>
+        </ScrollAnimation>
+
+        <div className="stats-grid" ref={statsRef}>
+          {stats.map((stat, index) => (
+            <ScrollAnimation 
+              key={index} 
+              animateIn="fadeInUp" 
+              delay={200 + index * 100}
+              className="stat-card"
+            >
+              <div className="stat-icon">{stat.icon}</div>
+              <div className="stat-number">{stat.number}</div>
+              <div className="stat-label">{stat.label}</div>
+            </ScrollAnimation>
+          ))}
         </div>
-      </ScrollAnimation>
-    </div>
+      </div>
+    </section>
   );
 };
+
 export default About;

@@ -1,63 +1,71 @@
-import React from "react";
-import Logo from "../assets/new_logo.png";
-
-import "../styles/components/Navbar.css";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/components/navbar.css';
+import Logo from '../assets/new_logo.png';
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { href: '#about', text: 'About' },
+    { href: '#achievements', text: 'Achievements' },
+    { href: '#vehicles', text: 'Vehicles' },
+    { href: '#sponsors', text: 'Sponsors' },
+    { href: '/teamhub', text: 'Team Hub', isRoute: true },
+    { href: '#contact', text: 'Contact' },
+  ];
+
   return (
-    <nav
-      className="navbar navbar-expand-md bg-dark navbar-dark fixed-top"
-      id="navbar"
-    >
-      <a className="navbar-brand ml-4" href="#home">
-        <img src={Logo} alt="logo" height="40px" />
-      </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#collapsibleNavbar"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul className="navbar-nav mr-4">
-          <li className="nav-item">
-            <a href="#about" className="nav-link">
-              About
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#achievement" className="nav-link">
-              Achievements
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#vehicles" className="nav-link">
-              Vehicles
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#sponsors" className="nav-link">
-              Sponsors
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#post" className="nav-link">
-              Posts
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#team" className="nav-link">
-              Team
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#contact" className="nav-link">
-              Contact
-            </a>
-          </li>
-        </ul>
+    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
+      <div className="navbar-container">
+        <a href="#home" className="navbar-brand">
+          <img src={Logo} alt="AUV IIITDM Logo" className="navbar-logo-img" />
+          <span className="navbar-logo-text">AUV IIITDM</span>
+        </a>
+
+        <button 
+          className="navbar-toggle" 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div className="navbar-links">
+          {navLinks.map((link) => (
+            link.isRoute ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="nav-link"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.text}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="nav-link"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.text}
+              </a>
+            )
+          ))}
+        </div>
       </div>
     </nav>
   );

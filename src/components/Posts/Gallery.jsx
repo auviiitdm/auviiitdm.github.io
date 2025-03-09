@@ -1,5 +1,6 @@
-import { useState } from "react";
-import ScrollAnimation from "react-animate-on-scroll";
+import React, { useState } from "react";
+
+// Gallery Photos
 import Img1 from "../../assets/img/1.PNG";
 import Img2 from "../../assets/img/2.JPG";
 import Img3 from "../../assets/img/3.JPG";
@@ -17,116 +18,60 @@ import Img14 from "../../assets/img/2022-1.JPG";
 import Img15 from "../../assets/img/2022-2.JPG";
 import Img16 from "../../assets/img/2022-3.JPG";
 
-const Modal = ({ img, setModalView }) => {
-  return (
-    <>
-      <div
-        className="modal fade"
-        id="imageModal"
-        tabIndex="-1"
-        role="dialog"
-        aria-labelledby="imageModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog .modal-dialog-centered" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <img src={img} alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-const Gallery = ({ setView }) => {
-  const [img, setImg] = useState({});
-  const [firstColumn] = useState([Img1, Img2, Img3, Img10, Img13, Img14]);
-  const [secondColumn] = useState([Img4, Img5, Img6, Img11, Img15]);
-  const [thirdColumn] = useState([Img7, Img8, Img9, Img12, Img16]);
+const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const galleryImages = [
+    { src: Img1, title: "Competition Preparation" },
+    { src: Img2, title: "Testing Phase" },
+    { src: Img3, title: "Team Discussion" },
+    { src: Img4, title: "Workshop Session" },
+    { src: Img5, title: "Competition Day" },
+    { src: Img6, title: "Technical Review" },
+    { src: Img7, title: "Team Building" },
+    { src: Img8, title: "Design Phase" },
+    { src: Img9, title: "Field Testing" },
+    { src: Img10, title: "Component Assembly" },
+    { src: Img11, title: "Final Checks" },
+    { src: Img12, title: "Team Celebration" },
+    { src: Img13, title: "Competition Success" },
+    { src: Img14, title: "2022 Highlights" },
+    { src: Img15, title: "Team Workshop" },
+    { src: Img16, title: "Project Review" }
+  ];
 
   return (
-    <>
-      <div className="col-sm-3">
-        <ScrollAnimation animateIn="fadeIn">
-          <ul className="list-group">
-            {/* <li
-              className="list-group-item"
-              onClick={() => setView("instagram")}
-              style={{ cursor: "pointer !important" }}
+    <div className="gallery-container">
+      <div className="gallery-grid">
+        {galleryImages.map((image, index) => (
+          <div key={index} className="gallery-item">
+            <div 
+              className="image-wrapper"
+              onClick={() => setSelectedImage(image)}
             >
-              Instagram
-            </li> */}
-            <li className="list-group-item" onClick={() => setView("youtube")}>
-              Youtube
-            </li>
-            <li className="list-group-item active">Gallery</li>
-          </ul>
-        </ScrollAnimation>
-      </div>
-      <div className="col-sm-9 flow-control">
-        <ScrollAnimation animateIn="fadeIn">
-          <div className="row">
-            <div className="col-sm-4">
-              {firstColumn.map((image) => (
-                <div className="image-wrapper" key={image}>
-                  <img
-                    src={image}
-                    alt=""
-                    width="100%"
-                    className="mb-3"
-                    data-toggle="modal"
-                    onClick={() => setImg(image)}
-                    data-target="#imageModal"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="col-sm-4">
-              {secondColumn.map((image) => (
-                <div className="image-wrapper" key={image}>
-                  <img
-                    src={image}
-                    alt=""
-                    width="100%"
-                    className="mb-3"
-                    data-toggle="modal"
-                    onClick={() => setImg(image)}
-                    data-target="#imageModal"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="col-sm-4">
-              {thirdColumn.map((image) => (
-                <div className="image-wrapper" key={image}>
-                  <img
-                    src={image}
-                    alt=""
-                    width="100%"
-                    className="mb-3"
-                    data-toggle="modal"
-                    onClick={() => setImg(image)}
-                    data-target="#imageModal"
-                  />
-                </div>
-              ))}
+              <img src={image.src} alt={image.title} />
+              <div className="image-overlay">
+                <span>{image.title}</span>
+              </div>
             </div>
           </div>
-        </ScrollAnimation>
+        ))}
       </div>
-      <Modal img={img} />
-    </>
+
+      {selectedImage && (
+        <div className="gallery-modal" onClick={() => setSelectedImage(null)}>
+          <div className="modal-content">
+            <img src={selectedImage.src} alt={selectedImage.title} />
+            <button 
+              className="close-button"
+              onClick={() => setSelectedImage(null)}
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -1,66 +1,79 @@
 import React from "react";
+import ScrollAnimation from "react-animate-on-scroll";
 import BlueRobotics from "../assets/logo/BlueRobotics__white-min.png";
 import SimScale from "../assets/logo/SimScale_logo_Rev_White.png";
 import DRDO from "../assets/logo/DRDO_RIC_Logo-min.png";
 import IIITDM from "../assets/logo/ilogo.png";
-import ScrollAnimation from "react-animate-on-scroll";
+import "../styles/components/sponsors.css";
 
 const Sponsors = () => {
+  const sponsorCategories = [
+    {
+      title: "Sponsored by",
+      name: "IIITDM Kancheepuram",
+      logo: IIITDM,
+      url: "https://www.iiitdm.ac.in/",
+      shortName: "IIITDMK"
+    },
+    {
+      title: "Special Thanks",
+      name: "Blue Robotics",
+      logo: BlueRobotics,
+      url: "https://bluerobotics.com/"
+    },
+    {
+      title: "Mentored by",
+      name: "Defence Research and Development Organisation",
+      logo: DRDO,
+      url: "https://www.drdo.gov.in/home",
+      shortName: "DRDO"
+    },
+    {
+      title: "Past Sponsors",
+      name: "SimScale",
+      logo: SimScale,
+      url: "https://www.simscale.com/"
+    }
+  ];
+
   return (
-    <>
-      <div className="sponsors" id="sponsors">
+    <section className="sponsors-section" id="sponsors">
+      <div className="sponsors-container">
         <ScrollAnimation animateIn="fadeIn">
-          <div className="container">
-            <h2 className="title" style={{ backgroundColor: "#161a22" }}>
-              Our Sponsors
-            </h2>
-            <hr></hr>
-            <div className="mentor text-center">
-              <h6 className="sub-heading mb-3">Sponsored by</h6>
-              <div className="card text-center p-4">
-                <a href="https://www.iiitdm.ac.in/" target="blank">
-                  <img src={IIITDM} alt="IIITDMK logo" height="50px" />
-                  <p>IIITDMK</p>
-                </a>
-              </div>
-            </div>
-            <div className="card-container p-4 ">
-              <div className="mentor text-center">
-                <h6 className="sub-heading mb-3">Special Thanks</h6>
-                <div className="card text-center p-4">
-                  <a href="https://bluerobotics.com/" target="blank">
-                    <img
-                      src={BlueRobotics}
-                      alt="BlueRobotics logo"
-                      height="50px"
+          <h2 className="sponsors-title">Our Sponsors</h2>
+          
+          <div className="sponsors-grid">
+            {sponsorCategories.map((sponsor, index) => (
+              <ScrollAnimation 
+                key={index}
+                animateIn="fadeInUp"
+                delay={index * 100}
+                className="sponsor-category"
+              >
+                <h3 className="category-title">{sponsor.title}</h3>
+                <a 
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sponsor-link"
+                >
+                  <div className="sponsor-card">
+                    <img 
+                      src={sponsor.logo}
+                      alt={`${sponsor.name} logo`}
+                      className="sponsor-logo"
                     />
-                    <p>Blue Robotics</p>
-                  </a>
-                </div>
-              </div>
-              <div className="mentor text-center">
-                <h6 className="sub-heading mb-3">Mentored by</h6>
-                <div className="card text-center p-4">
-                  <a href="https://www.drdo.gov.in/home" target="blank">
-                    <img src={DRDO} alt="DRDO logo" height="50px" />
-                    <p>DRDO</p>
-                  </a>
-                </div>
-              </div>
-              <div className="mentor text-center">
-                <h6 className="sub-heading mb-3">Past Sponsors</h6>
-                <div className="card text-center p-4">
-                  <a href="https://www.simscale.com/" target="blank">
-                    <img src={SimScale} alt="SimScale logo" height="50px" />
-                    <p>Sim Scale</p>
-                  </a>
-                </div>
-              </div>
-            </div>
+                    <h4 className="sponsor-name">
+                      {sponsor.shortName || sponsor.name}
+                    </h4>
+                  </div>
+                </a>
+              </ScrollAnimation>
+            ))}
           </div>
         </ScrollAnimation>
       </div>
-    </>
+    </section>
   );
 };
 

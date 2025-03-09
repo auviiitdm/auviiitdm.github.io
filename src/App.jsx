@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // components
 import LandingPage from "./components/LandingPage";
@@ -7,12 +8,12 @@ import AboutPage from "./components/About";
 import AchievementsPage from "./components/Achievement";
 import Vehicles from "./components/Vehicles/Vehicles";
 import Sponsors from "./components/Sponsors";
-import Posts from "./components/Posts/Posts";
-import Teams from "./components/Teams/Teams";
+import TeamHub from "./components/TeamHub";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 
-// assests
+// assets
 import Logo from "./assets/new_logo.png";
 
 // styles
@@ -28,6 +29,25 @@ const Loading = () => (
   </div>
 );
 
+const MainPage = ({ loading }) => (
+  <>
+    {loading && <Loading />}
+    {!loading && (
+      <>
+        <LandingPage />
+        <Navbar />
+        <AboutPage />
+        <AchievementsPage />
+        <Vehicles />
+        <Sponsors />
+        <Contact />
+        <Footer />
+        <BackToTop />
+      </>
+    )}
+  </>
+);
+
 // main jsx
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -38,23 +58,12 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      {loading && <Loading />}
-      {!loading && (
-        <>
-          <LandingPage />
-          <Navbar />
-          <AboutPage />
-          <AchievementsPage />
-          <Vehicles />
-          <Sponsors />
-          <Posts />
-          <Teams />
-          <Contact />
-          <Footer />
-        </>
-      )}
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/" render={() => <MainPage loading={loading} />} />
+        <Route path="/teamhub" component={TeamHub} />
+      </Switch>
+    </Router>
   );
 };
 
