@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AUV IIITDM - Vehicles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+    <div class="hero" style="min-height: 100vh;">
+        <div class="background container-fluid">
+            <div class="unicorn-embed" id="vehiclesWaterEffect"></div>
+        </div>
+        <div class="overlay-hero">
+
+            <nav class="d-flex align-items-center justify-content-between">
+                <a href="index.html" class="nav-hover-btn">AUV IIITDM</a>
+                <div class="cntr-nav d-flex gap-5">
+                    <a href="about.html" class="nav-hover-btn">About</a>
+                    <a href="achievements.html" class="nav-hover-btn">Achievements</a>
+                    <a href="vehicles.html" style="color: #00c8ff;" class="nav-hover-btn">Vehicles</a>
+                    <a href="gallery.html" class="nav-hover-btn">Gallery</a>
+                    <a href="sponsors.html" class="nav-hover-btn">Sponsors</a>
+                    <a href="team.html" class="nav-hover-btn">Team Hub</a>
+                    <a href="contact.html" class="nav-hover-btn">Contact</a>
+                </div>
+            </nav>
+
+            <div style="padding-right: 5px;">
+                <!-- Page content starts here -->
+
+                <!-- Vehicles Section -->
+                <section class="page-section">
+                    <div class="container">
+
+
+                        <!-- Tabs -->
+                        <div class="tab-nav">
+                            <button class="tab-btn active" onclick="openVehicle(event, 'moses')">Moses (3D)</button>
+                            <button class="tab-btn" onclick="openVehicle(event, 'nebula')">Nebula (3D)</button>
+                            <button class="tab-btn" onclick="openVehicle(event, 'marco')">AUV Marco</button>
+                            <button class="tab-btn" onclick="openVehicle(event, 'marty')">AUV Marty</button>
+                            <button class="tab-btn" onclick="openVehicle(event, 'auv3')">AUV V3.0 (Nemo)</button>
+                            <button class="tab-btn" onclick="openVehicle(event, 'auv2')">AUV V2.0</button>
+                            <button class="tab-btn" onclick="openVehicle(event, 'auv1')">AUV V1.0</button>
+                        </div>
+
+                        <!-- Moses Content -->
+                        <div id="moses" class="tab-content active">
+                            <div class="row align-items-stretch">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <div class="h-full-card"
+                                        style="background: rgba(0,200,255,0.05); border: 1px solid rgba(0,200,255,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                                        <div style="text-align: center; color: rgba(255,255,255,0.5);">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"
+                                                fill="#00c8ff" viewBox="0 0 16 16"
+                                                style="opacity:0.5; margin-bottom: 15px;">
+                                                <path
+                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                <path
+                                                    d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+                                            </svg>
+                                            <p style="color: #00c8ff; font-size: 1.1rem;">View Moses in 3D</p>
+                                            <a href="/webgl-water?model=moses"
+                                                class="btn btn-outline-light btn-sm mt-2">Launch 3D Viewer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-custom">
+                                        <h3 class="card-title">AUV Moses</h3>
+                                        <h4 class="card-subtitle mb-4">Features</h4>
+                                        <p class="card-text"><strong>Achievements:</strong> Runner Up IITM 2026.</p>
+                                        <p class="card-text"><strong>Magnetic Kill Switch:</strong> Development complete
+                                            — integrated into Moses for safe power cutoff during operation.</p>
+                                        <p class="card-text"><strong>Advanced Control:</strong> ADRC controller
+                                            implementation replacing traditional PID.</p>
+                                        <p class="card-text"><strong>Acoustic Localisation:</strong> Equipped with
+                                            hydrophones for underwater acoustic positioning.</p>
+
+                                        <h4 class="card-subtitle mt-4 mb-3">Specifications</h4>
+                                        <table class="specs-table">
+                                            <tr>
+                                                <th>Dimensions</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Weight</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>DOFs</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thrusters</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Processor</th>
+                                                <td>-</td>
+                                            </tr>
+                                        </table>
+
+                                        <a href="/webgl-water?model=moses"
+                                            class="btn btn-outline-light btn-sm mt-3">View in 3D</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nebula Content -->
+                        <div id="nebula" class="tab-content">
+                            <div class="row align-items-stretch">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <div class="h-full-card p-0 overflow-hidden border border-info rounded"
+                                        style="position: relative; min-height: 400px;">
+
+                                        <!-- Nebula Slider for v1, v2, ROV -->
+                                        <div id="nebulaCarousel" class="carousel slide h-100" data-bs-ride="carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#nebulaCarousel"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#nebulaCarousel"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#nebulaCarousel"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner h-100">
+                                                <div class="carousel-item active h-100">
+                                                    <img src="Assets/nebula.png" class="d-block w-100 h-100"
+                                                        style="object-fit: cover;" alt="Nebula v1">
+                                                    <div class="carousel-caption d-none d-md-block"
+                                                        style="background: rgba(0,0,0,0.6); border-radius: 10px; bottom: 20px;">
+                                                        <h5>Nebula v1</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item h-100">
+                                                    <div class="d-flex align-items-center justify-content-center h-100"
+                                                        style="background: rgba(0,200,255,0.1); min-height: 400px;">
+                                                        <span style="color: #00c8ff; font-size: 1.5rem;">Nebula v2
+                                                            Platform</span>
+                                                    </div>
+                                                    <div class="carousel-caption d-none d-md-block"
+                                                        style="background: rgba(0,0,0,0.6); border-radius: 10px; bottom: 20px;">
+                                                        <h5>Nebula v2</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item h-100">
+                                                    <div class="d-flex align-items-center justify-content-center h-100"
+                                                        style="background: rgba(0,200,255,0.1); min-height: 400px;">
+                                                        <span style="color: #00c8ff; font-size: 1.5rem;">Nebula ROV
+                                                            Adaptation</span>
+                                                    </div>
+                                                    <div class="carousel-caption d-none d-md-block"
+                                                        style="background: rgba(0,0,0,0.6); border-radius: 10px; bottom: 20px;">
+                                                        <h5>Nebula ROV</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#nebulaCarousel" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#nebulaCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-custom">
+                                        <h3 class="card-title">AUV Nebula</h3>
+                                        <h4 class="card-subtitle mb-4">Features</h4>
+                                        <p class="card-text"><strong>Achievements:</strong> Runner Up IITM 2025, 3rd
+                                            AMUROVc, Won IITM 2026.</p>
+                                        <p class="card-text"><strong>Evolution:</strong> Nebula exists in multiple
+                                            iterations: v1, v2, and an ROV setup.</p>
+                                        <p class="card-text"><strong>Next Generation:</strong> Modular architecture
+                                            engineered for rapid reconfiguration and enhanced hydrodynamics.</p>
+
+                                        <h4 class="card-subtitle mt-4 mb-3">Specifications</h4>
+                                        <table class="specs-table">
+                                            <tr>
+                                                <th>Dimensions</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Weight</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>DOFs</th>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thrusters</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Processor</th>
+                                                <td>-</td>
+                                            </tr>
+                                        </table>
+
+                                        <a href="/webgl-water?model=nebula"
+                                            class="btn btn-outline-light btn-sm mt-3">View in 3D</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Marco Content -->
+                        <div id="marco" class="tab-content">
+                            <div class="row align-items-stretch">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <div class="h-full-card"
+                                        style="background: rgba(0,200,255,0.05); border: 1px solid rgba(0,200,255,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                                        <span style="color: rgba(255,255,255,0.3); font-size: 1.5rem;">AUV Marco
+                                            (2025)</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-custom">
+                                        <h3 class="card-title">AUV Marco (2025)</h3>
+                                        <h4 class="card-subtitle mb-4">Features</h4>
+                                        <p class="card-text"><strong>Achievements:</strong> Won IITB, Came 5th in SAUVC
+                                            (2nd in India).</p>
+                                        <p class="card-text"><strong>Competition Ready:</strong> Proven track record in
+                                            high-level national and international aquatic robotic events.</p>
+
+                                        <h4 class="card-subtitle mt-4 mb-3">Specifications</h4>
+                                        <table class="specs-table">
+                                            <tr>
+                                                <th>Dimensions</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Weight</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>DOFs</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thrusters</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Processor</th>
+                                                <td>-</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Marty Content -->
+                        <div id="marty" class="tab-content">
+                            <div class="row align-items-stretch">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <div class="h-full-card"
+                                        style="background: rgba(0,200,255,0.05); border: 1px solid rgba(0,200,255,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                                        <span style="color: rgba(255,255,255,0.3); font-size: 1.5rem;">AUV Marty
+                                            (2024)</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-custom">
+                                        <h3 class="card-title">AUV Marty (2024)</h3>
+                                        <h4 class="card-subtitle mb-4">Features</h4>
+                                        <p class="card-text"><strong>Timeline:</strong> Designed and developed in 2024
+                                            as part of the core vehicle evolution process.</p>
+
+                                        <h4 class="card-subtitle mt-4 mb-3">Specifications</h4>
+                                        <table class="specs-table">
+                                            <tr>
+                                                <th>Dimensions</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Weight</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>DOFs</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thrusters</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Processor</th>
+                                                <td>-</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AUV V3.0 Content -->
+                        <div id="auv3" class="tab-content">
+                            <div class="row align-items-stretch">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <div class="h-full-card">
+                                        <img src="Assets/vehicles/auvv3.png" alt="AUV V3.0 Nemo"
+                                            class="img-fluid rounded border border-info"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-custom">
+                                        <h3 class="card-title">AUV V3.0 (Nemo)</h3>
+                                        <h4 class="card-subtitle mb-4">Features</h4>
+                                        <p class="card-text"><strong>Aesthetics:</strong> Distinctive Orange Coloured
+                                            body design.</p>
+                                        <p class="card-text"><strong>Advanced Design:</strong> Two hulls design (6" & 4"
+                                            acrylic).</p>
+                                        <p class="card-text"><strong>Enhanced Control:</strong> 5 DOFs (Heave, Surge,
+                                            Sway, Yaw, Roll) with vectored thruster configuration.</p>
+                                        <p class="card-text"><strong>Advanced Vision:</strong> Oak-D-series-3 camera for
+                                            3D vision and path planning.</p>
+
+                                        <h4 class="card-subtitle mt-4 mb-3">Specifications</h4>
+                                        <table class="specs-table">
+                                            <tr>
+                                                <th>Dimensions</th>
+                                                <td>49.2 x 45.4 x 40 cm</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Weight</th>
+                                                <td>11 kg</td>
+                                            </tr>
+                                            <tr>
+                                                <th>DOFs</th>
+                                                <td>5</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thrusters</th>
+                                                <td>4 x T100, 2 x T200</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Processor</th>
+                                                <td>Orin Nano, STM32</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AUV V2.0 Content -->
+                        <div id="auv2" class="tab-content">
+                            <div class="row align-items-stretch">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <div class="h-full-card">
+                                        <img src="Assets/vehicles/auvv2.jpg" alt="AUV V2.0"
+                                            class="img-fluid rounded border border-info"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-custom">
+                                        <h3 class="card-title">AUV V2.0</h3>
+                                        <h4 class="card-subtitle mb-4">Features</h4>
+                                        <p class="card-text"><strong>Robust Construction:</strong> Aluminium profile
+                                            extrusions.</p>
+                                        <p class="card-text"><strong>Acoustic Innovation:</strong> Custom hydrophone
+                                            array (passive sonar).</p>
+                                        <p class="card-text"><strong>Computer Vision:</strong> YOLOv3 with ROS for
+                                            object detection.</p>
+
+                                        <h4 class="card-subtitle mt-4 mb-3">Specifications</h4>
+                                        <table class="specs-table">
+                                            <tr>
+                                                <th>Dimensions</th>
+                                                <td>53 x 73 x 35.5 cm</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Weight</th>
+                                                <td>22 kg</td>
+                                            </tr>
+                                            <tr>
+                                                <th>DOFs</th>
+                                                <td>5</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thrusters</th>
+                                                <td>4 x T100, 2 x T200</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Processor</th>
+                                                <td>Jetson Nano, RPi 3, Arduino Mega</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AUV V1.0 Content -->
+                        <div id="auv1" class="tab-content">
+                            <div class="row align-items-stretch">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <div class="h-full-card">
+                                        <img src="Assets/vehicles/auvv1.png" alt="AUV V1.0"
+                                            class="img-fluid rounded border border-info"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-custom">
+                                        <h3 class="card-title">AUV V1.0</h3>
+                                        <h4 class="card-subtitle mb-4">Features</h4>
+                                        <p class="card-text"><strong>First Generation:</strong> Robust and practical
+                                            architecture.</p>
+                                        <p class="card-text"><strong>4 DOF Control:</strong> Heave, Surge, Pitch, Yaw.
+                                        </p>
+                                        <p class="card-text"><strong>Dual Processing:</strong> RPi 3 + Arduino Mega.</p>
+
+                                        <h4 class="card-subtitle mt-4 mb-3">Specifications</h4>
+                                        <table class="specs-table">
+                                            <tr>
+                                                <th>Dimensions</th>
+                                                <td>80 x 55 x 40 cm</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Weight</th>
+                                                <td>20 kg</td>
+                                            </tr>
+                                            <tr>
+                                                <th>DOFs</th>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thrusters</th>
+                                                <td>4 x T100</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Processor</th>
+                                                <td>RPi 3, Arduino Mega</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                <script>
+                    function openVehicle(evt, vehicleName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tab-content");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].classList.remove("active");
+                        }
+                        tablinks = document.getElementsByClassName("tab-btn");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].classList.remove("active");
+                        }
+                        document.getElementById(vehicleName).classList.add("active");
+                        // If called from script without event, evt might be null
+                        if (evt) evt.currentTarget.classList.add("active");
+                        else {
+                            // Find button with onclick containing vehicleName
+                            // This is tricky. Simpler: add IDs to buttons.
+                            // Or just loop buttons.
+                            const btns = document.getElementsByClassName("tab-btn");
+                            for (let btn of btns) {
+                                if (btn.onclick.toString().includes(vehicleName)) {
+                                    btn.classList.add("active");
+                                }
+                            }
+                        }
+                    }
+
+                    window.onload = function () {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const vehicle = urlParams.get('vehicle');
+                        if (vehicle) {
+                            openVehicle(null, vehicle);
+                        }
+                    };
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.unicorn.studio/v1.3.2/unicornStudio.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
