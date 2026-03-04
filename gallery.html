@@ -315,7 +315,7 @@
     <!-- Lightbox -->
     <div id="lightbox">
         <span id="lightbox-close">&#x2715;</span>
-        <img id="lightbox-img" src="" alt="">
+        <img id="lightbox-img" src="" alt="" loading="lazy">
         <div id="lightbox-caption"></div>
     </div>
 
@@ -393,7 +393,7 @@
                     card.className = `polaroid ${rot(si + pi)}`;
                     card.innerHTML = `
                         <img src="${photo.src}" alt="${photo.caption}"
-                             onerror="this.parentElement.style.background='rgba(0,200,255,0.1)'; this.style.display='none';">
+                             onerror="this.parentElement.style.background='rgba(0,200,255,0.1)'; this.style.display='none';" loading="lazy">
                         <div class="polaroid-caption">${photo.caption}</div>
                     `;
                     card.addEventListener('click', () => openLightbox(photo.src, photo.caption));
