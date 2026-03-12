@@ -89,3 +89,16 @@ if (document.querySelector("#section2-1")) {
     .from("#section2-1 h1, #section2-1 p, #section2-1 img", { opacity: 0, y: -850 }, 'a')
     .to("#section2-1 h1, #section2-1 p, #section2-1 img", { opacity: 0, y: 850 });
 }
+
+// Mobile Navigation Toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileToggle = document.querySelector(".mobile-nav-toggle");
+  const cntrNav = document.querySelector(".cntr-nav");
+
+  if (mobileToggle && cntrNav) {
+    mobileToggle.addEventListener("click", () => {
+      mobileToggle.classList.toggle("is-active");
+      cntrNav.classList.toggle("nav-active");
+    });
+  }
+});

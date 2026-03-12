@@ -17,6 +17,21 @@
     font-weight: 600;
 }
 
+/* About Page Specific Grids */
+.about-top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.about-bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
 html,
 body {
     height: 100%;
@@ -85,6 +100,38 @@ nav button {
     color: #eaeaed !important;
     border-radius: 50px !important;
     font-size: 1.2rem !important;
+}
+
+/* Mobile Nav Toggle Icon */
+.mobile-nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.mobile-nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #eaeaed;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-nav-toggle.is-active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-nav-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-nav-toggle.is-active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Content -hero */
@@ -1065,6 +1112,119 @@ h6 {
     }
 }
 
+
+/* Mobile Responsive Typography & Layout */
+@media (max-width: 900px) {
+    /* Navbar Adjustment */
+    .mobile-nav-toggle {
+        display: flex;
+    }
+
+    .cntr-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 20, 40, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 999;
+        gap: 2rem !important;
+    }
+
+    .cntr-nav.nav-active {
+        right: 0;
+    }
+
+    /* Typography Adjustments */
+    .hero-title {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    /* About page grids responsive */
+    .about-top-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-bottom-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .hero-subtitle {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .lft-content-inner-2 h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    
+    .lft-content-inner-2 p {
+        font-size: 1.2rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .gallery-title {
+        font-size: 2rem;
+    }
+
+    .btm-content {
+        flex-direction: column;
+        justify-content: center !important;
+        gap: 20px;
+        height: auto;
+        padding-top: 30px;
+        text-align: center;
+    }
+
+    .btm-content h3 {
+        width: 100%;
+        font-size: 1.8rem;
+    }
+
+    .rght-btn {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Inner layouts */
+    .content-inner-2 {
+        flex-direction: column;
+        height: auto;
+        padding: 100px 5vw;
+        justify-content: center;
+    }
+    
+    .lft-content-inner-2, .rght-content-inner-2 {
+        width: 100%;
+        align-items: center;
+    }
+
+    .rght-content-inner-2 {
+        margin-top: 40px;
+    }
+    
+    nav {
+        padding: 0 5vw;
+    }
+}
+
 @media (max-width: 600px) {
     .info-grid {
         grid-template-columns: 1fr;
@@ -1086,5 +1246,19 @@ h6 {
 
     .contact-footer p {
         max-width: 100%;
+    }
+    
+    /* Extra small adjustments */
+    .hero-title, .hero-subtitle {
+        font-size: 2.5rem;
+    }
+    
+    .btm-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .rght-btn {
+        flex-direction: column;
+        width: 80%;
     }
 }

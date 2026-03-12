@@ -22,6 +22,11 @@
 
             <nav class="d-flex align-items-center justify-content-between">
                 <a href="index.html" class="nav-hover-btn">AUV IIITDM</a>
+                <div class="mobile-nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <div class="cntr-nav d-flex gap-5">
                     <a href="about.html" class="nav-hover-btn">About</a>
                     <a href="achievements.html" class="nav-hover-btn">Achievements</a>
@@ -253,8 +258,9 @@
                     member.addEventListener('mousemove', function (e) {
                         const offsetX = 30;
                         const offsetY = 30;
-                        const imgWidth = 324;
-                        const imgHeight = 405;
+                        const isMobile = window.innerWidth <= 768;
+                        const imgWidth = isMobile ? 240 : 324;
+                        const imgHeight = isMobile ? 300 : 405;
 
                         // Calculate position, keeping image within viewport
                         let left = e.clientX + offsetX;
@@ -263,10 +269,12 @@
                         // Prevent going off right edge
                         if (left + imgWidth > window.innerWidth) {
                             left = e.clientX - imgWidth - offsetX;
+                            if (left < 10) left = 10; // prevent left overflow
                         }
                         // Prevent going off bottom edge
                         if (top + imgHeight > window.innerHeight) {
                             top = window.innerHeight - imgHeight - 10;
+                            if (top < 10) top = 10; // prevent top overflow
                         }
 
                         hoverImage.style.left = left + 'px';
