@@ -11,10 +11,10 @@ const waterEffectId = document.getElementById("gravityCoding") ? "gravityCoding"
 if (waterEffectId) {
   UnicornStudio.addScene({
     elementId: waterEffectId,
-    fps: 100,
+    fps: 60,
     scale: 1,
     dpi: 1,
-    lazyLoad: true,
+    lazyLoad: false,
     filePath: waterEffectId === "gravityCoding" ? "./WaterEffect/effect.json?v=22" : "./WaterEffect/effect-no-text.json?v=22",
     interactivity: {
       mouse: {
