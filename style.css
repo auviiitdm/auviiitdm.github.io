@@ -64,6 +64,20 @@ body {
     height: 100vh;
     padding: 0 !important;
     z-index: -1;
+    background: #022e7c;
+}
+
+/* Fallback text for mobile when WebGL is disabled */
+.mobile-hero-title {
+    display: none;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .unicorn-embed {
@@ -1180,6 +1194,11 @@ h6 {
     
     .gallery-title {
         font-size: 2rem;
+    }
+
+    .mobile-hero-title {
+        display: block;
+        margin-top: 20vh;
     }
 
     .btm-content {
