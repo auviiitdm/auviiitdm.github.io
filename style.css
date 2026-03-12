@@ -1201,6 +1201,11 @@ h6 {
         margin-top: 20vh;
     }
 
+    /* Force hide WebGL canvas on mobile */
+    .unicorn-embed, canvas {
+        display: none !important;
+    }
+
     .btm-content {
         flex-direction: column;
         justify-content: center !important;
