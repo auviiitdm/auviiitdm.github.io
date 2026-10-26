@@ -10,7 +10,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link href="https://fonts.cdnfonts.com/css/general-sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=28" />
 </head>
 
 <body>
@@ -20,14 +20,17 @@
         <div class="unicorn-embed" id="gravityCoding"></div>
       </div>
       <div class="overlay-hero">
-        <nav class="d-flex align-items-center justify-content-between">
-          <a href="index.html" class="nav-hover-btn">AUV IIITDM</a>
-          <div class="mobile-nav-toggle">
+        <nav>
+          <a href="index.html" class="brand-link">
+            <img src="auv logo.png" alt="AUV Logo" class="brand-logo-img">
+            <span>AUV IIITDM</span>
+          </a>
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
             <span></span>
-          </div>
-          <div class="cntr-nav d-flex gap-5">
+          </button>
+          <div class="cntr-nav">
             <a href="about.html" class="nav-hover-btn">About</a>
             <a href="achievements.html" class="nav-hover-btn">Achievements</a>
             <a href="vehicles.html" class="nav-hover-btn">Vehicles</a>
@@ -38,17 +41,16 @@
           </div>
         </nav>
         <div class="content-hero">
-          <div class="animated-logo d-flex align-items-center justify-content-center flex-column">
-            <!-- Text handled by Water Effect -->
+          <div class="animated-logo">
+            <!-- Text fallback for mobile or when WebGL canvas is inactive -->
             <h1 class="mobile-hero-title">AUV Society<br>IIITDM Kancheepuram</h1>
+            <p class="hero-subtitle-sub">Designing and developing cutting-edge autonomous underwater robotics</p>
           </div>
-          <div class="btm-content d-flex align-items-center justify-content-between">
-            <h3>
-              Aiming Higher, Diving Deeper
-            </h3>
+          <div class="btm-content">
+            <h3>Aiming Higher, Diving Deeper</h3>
             <div class="rght-btn">
-              <a href="team.html" class="btn btn-primary">Team</a>
-              <a href="contact.html" class="btn btn-primary">Contact Us</a>
+              <a href="team.html" class="btn btn-primary">Team Hub</a>
+              <a href="contact.html" class="btn btn-outline-light">Contact Us</a>
             </div>
           </div>
         </div>
@@ -57,14 +59,13 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="https://cdn.unicorn.studio/v1.3.2/unicornStudio.umd.js"></script>
-  <script src="script.js?v=27"></script>
+  <script src="script.js?v=28"></script>
 </body>
 
 </html>

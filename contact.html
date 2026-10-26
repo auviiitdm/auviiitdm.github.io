@@ -9,32 +9,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://fonts.cdnfonts.com/css/general-sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=10">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=28">
 </head>
 
 <body>
-    <div class="hero" style="min-height: 100vh;">
+    <div class="hero">
         <div class="background container-fluid">
             <div class="unicorn-embed" id="contactWaterEffect"></div>
         </div>
         <div class="overlay-hero">
 
-            <nav class="d-flex align-items-center justify-content-between">
-                <a href="index.html" class="nav-hover-btn">AUV IIITDM</a>
-                <div class="mobile-nav-toggle">
+            <nav>
+                <a href="index.html" class="brand-link">
+                    <img src="auv logo.png" alt="AUV Logo" class="brand-logo-img">
+                    <span>AUV IIITDM</span>
+                </a>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <div class="cntr-nav d-flex gap-5">
+                </button>
+                <div class="cntr-nav">
                     <a href="about.html" class="nav-hover-btn">About</a>
                     <a href="achievements.html" class="nav-hover-btn">Achievements</a>
                     <a href="vehicles.html" class="nav-hover-btn">Vehicles</a>
                     <a href="gallery.html" class="nav-hover-btn">Gallery</a>
                     <a href="sponsors.html" class="nav-hover-btn">Sponsors</a>
                     <a href="team.html" class="nav-hover-btn">Team Hub</a>
-                    <a href="contact.html" style="color: #00c8ff;" class="nav-hover-btn">Contact</a>
+                    <a href="contact.html" class="nav-hover-btn active">Contact</a>
                 </div>
             </nav>
 
@@ -54,22 +57,21 @@
                                 <h3>LOCATION</h3>
                                 <p>IIITDM Kancheepuram<br>Vandalur-Kelambakkam Road<br>Chennai - 600127</p>
                                 <a href="https://www.google.com/maps/search/?api=1&query=Triangles+Block-C,+IIITDM,+Vengadamangalam,+Tamil+Nadu+600127"
-                                    target="_blank" class="btn-outline-sm">GET
-                                    DIRECTIONS</a>
+                                    target="_blank" class="btn-outline-sm">GET DIRECTIONS</a>
                             </div>
 
                             <!-- Box 2: Contact -->
                             <div class="info-box border-bottom">
                                 <h3>CONTACT</h3>
                                 <p>
-                                    <a href="mailto:auv.society@iiitdm.ac.in">auv.society@iiitdm.ac.in</a><br>
+                                    <a href="mailto:auv.society@iiitdm.ac.in" style="color: #00c8ff;">auv.society@iiitdm.ac.in</a><br>
                                 </p>
                             </div>
 
                             <!-- Box 3: Message/Hours -->
                             <div class="info-box border-right">
                                 <h3>RECRUITMENT</h3>
-                                <p>Interested in joining?<br>We recruit annually in even semester during March.</p>
+                                <p>Interested in joining?<br>We recruit annually during the even semester in March.</p>
                             </div>
 
                             <!-- Box 4: Socials -->
@@ -78,8 +80,7 @@
                                 <ul class="social-list">
                                     <li><a href="https://www.linkedin.com/company/auv-iiitdm-kancheepuram/"
                                             target="_blank">LinkedIn</a></li>
-                                    <li><a href="https://www.instagram.com/auv_iiitdm" target="_blank">Instagram</a>
-                                    </li>
+                                    <li><a href="https://www.instagram.com/auv_iiitdm" target="_blank">Instagram</a></li>
                                     <li><a href="https://www.youtube.com/channel/UCFBFlcfjEGOUsuFfPC-62bg"
                                             target="_blank">YouTube</a></li>
                                 </ul>
@@ -90,9 +91,8 @@
 
                 <!-- Footer Text -->
                 <div class="contact-footer">
-                    <p>We are available to help with any queries about our projects. You can email us anytime and we
-                        will get back to you.</p>
-                    <a href="index.html" class="btn-primary" style="text-decoration: none;">Stay in the loop</a>
+                    <p>We are available to answer any questions about our vehicles, research, or sponsorship partnerships. Drop us a note anytime.</p>
+                    <a href="mailto:auv.society@iiitdm.ac.in" class="btn-primary" style="text-decoration: none;">Get in Touch</a>
                 </div>
             </div>
 
@@ -103,7 +103,7 @@
     <script src="https://cdn.unicorn.studio/v1.3.2/unicornStudio.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="script.js?v=27"></script>
+    <script src="script.js?v=28"></script>
 </body>
 
 </html>

@@ -9,21 +9,8 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://fonts.cdnfonts.com/css/general-sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=10">
+    <link rel="stylesheet" href="style.css?v=28">
     <style>
-        html,
-        body {
-            overflow-x: hidden;
-            overflow-y: auto;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            height: auto;
-        }
-
-        html::-webkit-scrollbar,
-        body::-webkit-scrollbar {
-            display: none;
-        }
 
         /* ─── Filter Pills ──────────────────────────── */
         .filter-pills {
@@ -269,29 +256,30 @@
         </div>
         <div class="overlay-hero">
 
-            <nav class="d-flex align-items-center justify-content-between">
-                <a href="index.html" class="nav-hover-btn">AUV IIITDM</a>
-                <div class="mobile-nav-toggle">
+            <nav>
+                <a href="index.html" class="brand-link">
+                    <img src="auv logo.png" alt="AUV Logo" class="brand-logo-img">
+                    <span>AUV IIITDM</span>
+                </a>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <div class="cntr-nav d-flex gap-5">
+                </button>
+                <div class="cntr-nav">
                     <a href="about.html" class="nav-hover-btn">About</a>
                     <a href="achievements.html" class="nav-hover-btn">Achievements</a>
                     <a href="vehicles.html" class="nav-hover-btn">Vehicles</a>
-                    <a href="gallery.html" style="color: #00c8ff;" class="nav-hover-btn">Gallery</a>
+                    <a href="gallery.html" class="nav-hover-btn active">Gallery</a>
                     <a href="sponsors.html" class="nav-hover-btn">Sponsors</a>
                     <a href="team.html" class="nav-hover-btn">Team Hub</a>
                     <a href="contact.html" class="nav-hover-btn">Contact</a>
                 </div>
             </nav>
 
-            <div style="padding: 0 5vw;">
-
-                <!-- Heading -->
-                <div class="text-center" style="padding-top: 10px; margin-bottom: 4px;">
-                    <h1 class="section-title" style="font-size: 2.8rem; margin-bottom: 10px;">Our Visual Journey</h1>
+            <div class="page-section pb-0">
+                <div class="page-container text-center">
+                    <h1 class="section-title mb-2">Our Visual Journey</h1>
                     <p style="color: rgba(255,255,255,0.5); font-size: 0.97rem; max-width: 460px; margin: 0 auto;">
                     </p>
                 </div>
@@ -452,6 +440,7 @@
         // ─── Init ─────────────────────────────────────────
         buildTimeline('all');
     </script>
+    <script src="script.js?v=28"></script>
 </body>
 
 </html>
