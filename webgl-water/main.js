@@ -1,3 +1,4 @@
+
 const canvas = document.getElementById('canvas');
 
 // Set canvas to fullscreen
@@ -380,9 +381,23 @@ loadFile('shaders/utils.glsl').then((utils) => {
 
   // Determine which model to load from URL param
   const urlParams = new URLSearchParams(window.location.search);
-  const modelName = urlParams.get('model') || 'nebula';
-  const modelFile = modelName === 'moses' ? 'moses.glb' : 'nebula.glb';
-  document.title = modelName.charAt(0).toUpperCase() + modelName.slice(1) + ' - AUV 3D Viewer';
+  const requestedModel = (urlParams.get('model') || 'nebula').toLowerCase();
+  let modelName = 'nebula';
+  let modelFile = 'nebula.glb';
+
+  if (requestedModel === 'moses') {
+    modelName = 'moses';
+    modelFile = 'moses.glb';
+  } else if (requestedModel === 'marco') {
+    modelName = 'marco';
+    modelFile = 'Marco.glb';
+  }
+
+  document.title = (modelName === 'marco' ? 'AUV Marco' : modelName.charAt(0).toUpperCase() + modelName.slice(1)) + ' - AUV 3D Viewer';
+  const badge = document.getElementById('modelBadge');
+  if (badge) {
+    badge.textContent = (modelName === 'marco' ? 'AUV Marco' : (modelName === 'moses' ? 'AUV Moses' : 'AUV Nebula')) + ' (3D)';
+  }
 
   let botCenter = new THREE.Vector3(0, -0.5, 0);
 
@@ -533,19 +548,36 @@ loadFile('shaders/utils.glsl').then((utils) => {
   let botModel = null;
 
   gltfLoader.load(modelFile, (gltf) => {
-    console.log('✓ ' + modelName + ' model loaded');
+    console.log('✓ ' + modelName + ' model loaded from ' + modelFile);
     botModel = gltf.scene;
+
+    // Remove any embedded camera nodes from GLTF so they don't break bounds or scene camera
+    const camerasToRemove = [];
+    botModel.traverse((child) => {
+      if (child.isCamera) {
+        camerasToRemove.push(child);
+      }
+    });
+    camerasToRemove.forEach((cam) => {
+      if (cam.parent) cam.parent.remove(cam);
+    });
 
     botModel.traverse((child) => {
       if (child.isMesh) {
+        // Ensure geometry has uv attribute so custom shader compiles cleanly
+        if (child.geometry && !child.geometry.attributes.uv) {
+          const count = child.geometry.attributes.position ? child.geometry.attributes.position.count : 0;
+          child.geometry.setAttribute('uv', new THREE.BufferAttribute(new Float32Array(count * 2), 2));
+        }
+
         // Store original material properties
         const originalMaterial = child.material;
 
         // Check which textures are available
-        const hasMap = !!(originalMaterial.map);
-        const hasNormalMap = !!(originalMaterial.normalMap);
-        const hasRoughnessMap = !!(originalMaterial.roughnessMap);
-        const hasMetalnessMap = !!(originalMaterial.metalnessMap);
+        const hasMap = !!(originalMaterial && originalMaterial.map);
+        const hasNormalMap = !!(originalMaterial && originalMaterial.normalMap);
+        const hasRoughnessMap = !!(originalMaterial && originalMaterial.roughnessMap);
+        const hasMetalnessMap = !!(originalMaterial && originalMaterial.metalnessMap);
 
         // Create custom shader material that receives caustics AND preserves textures
         child.material = new THREE.ShaderMaterial({
@@ -553,19 +585,19 @@ loadFile('shaders/utils.glsl').then((utils) => {
             causticTex: { value: null },
             light: { value: new THREE.Vector3(light[0], light[1], light[2]) },
             // Use original textures if available
-            map: { value: originalMaterial.map || null },
-            normalMap: { value: originalMaterial.normalMap || null },
-            roughnessMap: { value: originalMaterial.roughnessMap || null },
-            metalnessMap: { value: originalMaterial.metalnessMap || null },
+            map: { value: (originalMaterial && originalMaterial.map) || null },
+            normalMap: { value: (originalMaterial && originalMaterial.normalMap) || null },
+            roughnessMap: { value: (originalMaterial && originalMaterial.roughnessMap) || null },
+            metalnessMap: { value: (originalMaterial && originalMaterial.metalnessMap) || null },
             // Boolean flags for texture availability
             hasMap: { value: hasMap },
             hasNormalMap: { value: hasNormalMap },
             hasRoughnessMap: { value: hasRoughnessMap },
             hasMetalnessMap: { value: hasMetalnessMap },
             // Fallback color values
-            baseColor: { value: originalMaterial.color || new THREE.Color(0.8, 0.8, 0.8) },
-            metalness: { value: originalMaterial.metalness !== undefined ? originalMaterial.metalness : 0.7 },
-            roughness: { value: originalMaterial.roughness !== undefined ? originalMaterial.roughness : 0.3 },
+            baseColor: { value: (originalMaterial && originalMaterial.color) ? originalMaterial.color : new THREE.Color(0.8, 0.8, 0.8) },
+            metalness: { value: (originalMaterial && originalMaterial.metalness !== undefined) ? originalMaterial.metalness : 0.7 },
+            roughness: { value: (originalMaterial && originalMaterial.roughness !== undefined) ? originalMaterial.roughness : 0.3 },
           },
           vertexShader: `
             varying vec3 vNormal;
@@ -623,7 +655,6 @@ loadFile('shaders/utils.glsl').then((utils) => {
               // Basic lighting
               vec3 normal = normalize(vNormal);
               if (hasNormalMap) {
-                // Simple normal map usage (not fully correct but better than nothing)
                 vec3 normalTex = texture2D(normalMap, vUv).rgb * 2.0 - 1.0;
                 normal = normalize(vNormal + normalTex * 0.3);
               }
@@ -631,9 +662,9 @@ loadFile('shaders/utils.glsl').then((utils) => {
               vec3 lightDir = normalize(light);
               float diffuse = max(dot(normal, lightDir), 0.0);
               
-              // Apply lighting to albedo (NO caustics)
+              // Apply lighting to albedo
               vec3 color = albedo;
-              color = mix(color * 0.5, color * 1.5, diffuse);  // Apply lighting with better range
+              color = mix(color * 0.5, color * 1.5, diffuse);
               
               // Add some metallic sheen
               vec3 viewDir = normalize(cameraPosition - vWorldPosition);
@@ -650,24 +681,30 @@ loadFile('shaders/utils.glsl').then((utils) => {
       }
     });
 
-    // Scale and position the model
+    // Fix orientation if the GLB is exported upside-down
+    if (modelName === 'moses') {
+      botModel.rotation.x = Math.PI;  // flip 180° around X-axis for Moses
+    }
+
+    // Scale and center the model precisely inside the pool
     const box = new THREE.Box3().setFromObject(botModel);
     const size = box.getSize(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z);
-    const scale = 0.7 / maxDim;  // Bigger bot
+    const scale = 0.75 / Math.max(maxDim, 0.001);
 
     botModel.scale.set(scale, scale, scale);
     box.setFromObject(botModel);
     const center = box.getCenter(new THREE.Vector3());
+
+    // Center geometry at origin and position in water
+    botModel.position.x -= center.x;
+    botModel.position.y -= center.y + 0.5;
+    botModel.position.z -= center.z;
+    botCenter.copy(botModel.position);
+
     botScene.add(botModel);
-    botModel.position.y -= 0.5;
 
-    // Fix orientation if the GLB is exported upside-down
-    if (modelName === 'moses') {
-      botModel.rotation.x = Math.PI;  // flip 180° around X-axis
-    }
-
-    console.log('✓ ' + modelName + ' model positioned with caustics');
+    console.log('✓ ' + modelName + ' positioned cleanly in 3D pool');
   }, (progress) => {
     const percent = progress.total > 0 ? (progress.loaded / progress.total * 100).toFixed(1) : '...';
     console.log('Loading ' + modelName + ':', percent + '%');

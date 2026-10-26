@@ -144,11 +144,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(2, 22, 60, 0.75);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(0, 200, 255, 0.15);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    background: transparent;
+    transition: background-color 0.3s ease;
 }
 
 .brand-link {
@@ -434,24 +431,26 @@ nav {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     padding: 12px 28px;
     background: linear-gradient(135deg, #00c8ff 0%, #0088cc 100%) !important;
     color: #021a48 !important;
     font-weight: 700 !important;
     border: none !important;
-    border-radius: 50px;
+    border-radius: 50px !important;
     font-size: 0.95rem;
     letter-spacing: 0.3px;
     cursor: pointer;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     text-decoration: none;
-    box-shadow: 0 4px 16px rgba(0, 200, 255, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 200, 255, 0.35);
     white-space: nowrap;
+    width: fit-content;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 200, 255, 0.45);
+    box-shadow: 0 8px 26px rgba(0, 200, 255, 0.55);
     color: #000 !important;
 }
 
@@ -460,46 +459,58 @@ nav {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 24px;
-    background: transparent !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
-    color: #ffffff !important;
+    gap: 8px;
+    padding: 12px 28px;
+    background: rgba(0, 200, 255, 0.08) !important;
+    border: 2px solid #00c8ff !important;
+    color: #00c8ff !important;
     border-radius: 50px !important;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px;
     transition: all 0.25s ease;
     text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0, 200, 255, 0.2);
     white-space: nowrap;
+    width: fit-content;
 }
 
 .btn-outline-light:hover,
 .btn-outline:hover {
-    background: rgba(0, 200, 255, 0.15) !important;
+    background: #00c8ff !important;
     border-color: #00c8ff !important;
-    color: #00c8ff !important;
+    color: #021a48 !important;
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 200, 255, 0.5);
 }
 
-.btn-outline-sm {
+.btn-outline-sm,
+.btn-outline-light.btn-sm {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 18px;
-    border: 1.5px solid rgba(255, 255, 255, 0.5);
-    border-radius: 30px;
-    color: #fff;
+    gap: 6px;
+    padding: 8px 20px;
+    border: 1.5px solid #00c8ff !important;
+    border-radius: 30px !important;
+    color: #00c8ff !important;
+    background: rgba(0, 200, 255, 0.08) !important;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.25s ease;
     width: fit-content;
+    box-shadow: 0 2px 10px rgba(0, 200, 255, 0.15);
 }
 
-.btn-outline-sm:hover {
-    background: #00c8ff;
-    border-color: #00c8ff;
+.btn-outline-sm:hover,
+.btn-outline-light.btn-sm:hover {
+    background: #00c8ff !important;
+    border-color: #00c8ff !important;
     color: #021a48 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 200, 255, 0.4);
 }
 
 /* ==========================================================================
@@ -744,21 +755,26 @@ nav {
 }
 
 .tab-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1.5px solid rgba(0, 200, 255, 0.4);
-    color: #eaeaed;
-    padding: 8px 22px;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 20px;
     border-radius: 30px;
     cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 600;
+    text-decoration: none;
     transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tab-btn.active,
 .tab-btn:hover {
     background: #00c8ff;
-    color: #021a48;
+    color: #021a48 !important;
     border-color: #00c8ff;
     box-shadow: 0 4px 16px rgba(0, 200, 255, 0.35);
 }
